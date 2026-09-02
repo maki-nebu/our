@@ -57,13 +57,7 @@ class AppointmentController extends Controller
         return back()->with('success', __('Appointment approved.'));
     }
 
-    // Admin: Reject appointment
-    public function reject($id)
-    {
-        $appointment = Appointment::findOrFail($id);
-        $appointment->update(['status' => 'rejected']);
-        return back()->with('success', __('Appointment rejected.'));
-    }
+
 
     // Admin: Delete appointment
     public function destroy($id)
