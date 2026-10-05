@@ -16,19 +16,4 @@ class AuthServiceProvider extends ServiceProvider
         //
     ];
 
-    /**
-     * Register any authentication / authorization services.
-     */
-    public function boot()
-    {
-        $this->registerPolicies();
-
-        // Give Super Admin full access (bypasses all permission checks)
-        Gate::before(function ($user, $ability) {
-            return $user->hasRole('Super Admin') ? true : null;
-        });
-        
-        // Note: No need for additional gates when using Spatie Permissions
-        // The package automatically handles permission checks through the can() method
-    }
 }
