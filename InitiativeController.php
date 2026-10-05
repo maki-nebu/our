@@ -94,15 +94,7 @@ class InitiativeController extends Controller
         }
     }
 
-    public function edit($id)
-    {
-        try {
-            $initiativess = Initiative::find($id);
-            return view('admin.initiative.edit', compact('initiativess'));
-        } catch (\Throwable $th) {
-            return redirect()->back()->with('infoMsg', $th->getMessage());
-        }
-    }
+    
 
     public function update(Request $request, $id)
     {
